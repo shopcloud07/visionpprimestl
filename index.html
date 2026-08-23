@@ -8,7 +8,7 @@
     <!-- Preload da fonte local para evitar FOIT -->
     <link rel="preload" href="fonts/pxiByp8kv8JHgFVrLDD4V1s.ttf" as="font" type="font/ttf" crossorigin>
     <!-- Preload da imagem LCP (thumbnail do vídeo) com prioridade máxima -->
-    <link rel="preload" as="image" href="https://fast.wistia.com/embed/medias/wi5u56pi7l/swatch" fetchpriority="high">
+    <link rel="preload" as="image" href="https://fast.wistia.com/embed/medias/vf8205drp9/swatch" fetchpriority="high">
     <link rel="dns-prefetch" href="https://fast.wistia.com">
     <link rel="preconnect" href="https://fast.wistia.com" crossorigin>
     <link href="css/css2.css" rel="stylesheet">
@@ -100,7 +100,7 @@
                 <!-- Fachada estática com imagem e botão de play - usa <img> para que o preload scanner do browser encontre a imagem LCP -->
                 <div id="wistia-facade" style="position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; cursor: pointer; z-index: 10; transition: opacity 0.3s ease;">
                   <img
-                    src="https://fast.wistia.com/embed/medias/wi5u56pi7l/swatch"
+                    src="https://fast.wistia.com/embed/medias/vf8205drp9/swatch"
                     alt="Assistir apresentação Vision Prime STL"
                     fetchpriority="high"
                     loading="eager"
@@ -143,14 +143,14 @@
                   document.head.appendChild(s1);
 
                   const s2 = document.createElement('script');
-                  s2.src = 'https://fast.wistia.com/embed/wi5u56pi7l.js';
+                  s2.src = 'https://fast.wistia.com/embed/vf8205drp9.js';
                   s2.type = 'module';
                   s2.async = true;
                   document.head.appendChild(s2);
 
                   const target = document.getElementById('wistia-player-target');
                   if (target) {
-                    target.innerHTML = '<wistia-player media-id="wi5u56pi7l" seo="false" aspect="0.5625" playbar="false" small-play-button="false" volume-control="false" fullscreen-button="false" settings-control="false" wistia-logo="false"></wistia-player>';
+                    target.innerHTML = '<wistia-player media-id="vf8205drp9" seo="false" aspect="0.5625" playbar="false" small-play-button="false" volume-control="false" fullscreen-button="false" settings-control="false" wistia-logo="false"></wistia-player>';
                   }
                 }
 
