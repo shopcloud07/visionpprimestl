@@ -29,6 +29,20 @@ const FOLHAS = ['css/css2.css', 'css/styles.css']; // a ordem importa: fonte ant
 const INICIO = '<!-- CSS-EMBUTIDO:INICIO - gerado por construir.js. NAO edite aqui: edite css/styles.css e rode "node construir.js" -->';
 const FIM = '<!-- CSS-EMBUTIDO:FIM -->';
 
+// --- desfazer: volta aos <link>, do jeito que era antes de embutir ---
+// uso: node construir.js --desfazer
+if (process.argv.includes('--desfazer')) {
+  let h = fs.readFileSync(HTML, 'utf8');
+  const i = h.indexOf(INICIO), f = h.indexOf(FIM);
+  if (i === -1 || f === -1) { console.log('o index.html ja esta com os <link> separados. nada a fazer.'); process.exit(0); }
+  const links = '<link href="css/css2.css" rel="stylesheet">\n    ' +
+                '<link rel="stylesheet" href="css/styles.css?v=1355">';
+  h = h.slice(0, i) + links + h.slice(f + FIM.length);
+  fs.writeFileSync(HTML, h);
+  console.log('desfeito: o index.html voltou a carregar css/css2.css e css/styles.css por <link>.');
+  process.exit(0);
+}
+
 // --- 1. junta as folhas de estilo ---
 let css = '';
 for (const arq of FOLHAS) {
